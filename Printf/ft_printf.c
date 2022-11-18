@@ -6,7 +6,7 @@
 /*   By: jael-mor <jael-mor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 01:48:23 by jael-mor          #+#    #+#             */
-/*   Updated: 2022/11/17 04:12:34 by jael-mor         ###   ########.fr       */
+/*   Updated: 2022/11/17 21:58:02 by jael-mor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,18 @@ int	ft_printf(char const *format, ...)
 	va_list	ptr;
 	int		freturn;
 
+	if (write(1, 0, 0) == -1)
+		return (-1);
 	freturn = 0;
 	va_start(ptr, format);
-	while (*format && freturn > -1)
+	while (*format)
 	{
-		if (ft_flags(format) > 0 && ft_flags(format) < 9 && freturn > -1)
+		if (ft_flags(format) > 0 && ft_flags(format) < 9)
 		{
 			ft_printarg(ft_flags(format), ptr, &freturn);
 			format += 2;
 		}
-		if (ft_flags(format) == 9)
+		else if (ft_flags(format) == 9)
 			format++;
 		else if (*format)
 		{

@@ -6,11 +6,11 @@
 #    By: jael-mor <jael-mor@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/11 05:20:37 by jael-mor          #+#    #+#              #
-#    Updated: 2022/11/17 03:54:22 by jael-mor         ###   ########.fr        #
+#    Updated: 2022/11/17 19:53:38 by jael-mor         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libfprintf.a
+NAME = libftprintf.a
 
 SRCS = ft_printf.c \
 	ft_flags.c \

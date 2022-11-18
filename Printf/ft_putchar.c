@@ -6,7 +6,7 @@
 /*   By: jael-mor <jael-mor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 00:38:47 by jael-mor          #+#    #+#             */
-/*   Updated: 2022/11/17 04:13:39 by jael-mor         ###   ########.fr       */
+/*   Updated: 2022/11/17 21:42:45 by jael-mor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,4 @@ void	ft_putchar(char c, int fd, int *freturn)
 		*freturn += 1;
 		return ;
 	}
-	*freturn = -1;
 }

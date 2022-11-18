@@ -6,7 +6,7 @@
 /*   By: jael-mor <jael-mor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 00:49:12 by jael-mor          #+#    #+#             */
-/*   Updated: 2022/11/17 03:48:30 by jael-mor         ###   ########.fr       */
+/*   Updated: 2022/11/17 21:42:52 by jael-mor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_putnbr(int n, int fd, int *freturn)
 		write(fd, "-2147483648", 11);
 		*freturn += 11;
 	}
-	else if (n >= 0 && n <= 9 && *freturn > -1)
+	else if (n >= 0 && n <= 9)
 	{
 		c = n + 48;
 		write (fd, &c, 1);

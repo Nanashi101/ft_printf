@@ -6,7 +6,7 @@
 /*   By: jael-mor <jael-mor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 02:29:57 by jael-mor          #+#    #+#             */
-/*   Updated: 2022/11/17 04:11:50 by jael-mor         ###   ########.fr       */
+/*   Updated: 2022/11/17 21:42:12 by jael-mor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lowerhex(unsigned long int n, int *freturn)
 {
-	if (n <= 15 && *freturn != -1)
+	if (n <= 15)
 	{
 		ft_putchar("0123456789abcdef"[n], 1, freturn);
 	}
@@ -27,13 +27,13 @@ void	ft_lowerhex(unsigned long int n, int *freturn)
 
 void	ft_upperhex(unsigned long int n, int *freturn)
 {
-	if (n <= 15 && *freturn != -1)
+	if (n <= 15)
 	{
 		ft_putchar("0123456789ABCDEF"[n], 1, freturn);
 	}
 	else if (n > 15)
 	{
-		ft_lowerhex(n / 16, freturn);
-		ft_lowerhex(n % 16, freturn);
+		ft_upperhex(n / 16, freturn);
+		ft_upperhex(n % 16, freturn);
 	}
 }

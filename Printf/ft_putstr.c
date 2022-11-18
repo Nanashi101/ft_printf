@@ -6,7 +6,7 @@
 /*   By: jael-mor <jael-mor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 00:44:31 by jael-mor          #+#    #+#             */
-/*   Updated: 2022/11/17 04:03:53 by jael-mor         ###   ########.fr       */
+/*   Updated: 2022/11/17 21:43:13 by jael-mor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_putstr(char *s, int fd, int *freturn)
 		ft_putstr("(null)", 1, freturn);
 		return ;
 	}
-	while (s[i] && *freturn > -1)
+	while (s[i])
 	{
 		write(fd, &s[i], 1);
 		*freturn += 1;
