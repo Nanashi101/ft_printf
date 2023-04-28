@@ -6,15 +6,13 @@
 #    By: jael-mor <jael-mor@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/11 05:20:37 by jael-mor          #+#    #+#              #
-#    Updated: 2022/11/17 19:53:38 by jael-mor         ###   ########.fr        #
+#    Updated: 2023/04/28 18:47:39 by jael-mor         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 SRCS = ft_printf.c \
-	ft_flags.c \
-	ft_printf.c \
 	ft_putchar.c \
 	ft_hex.c \
 	ft_putnbr.c \

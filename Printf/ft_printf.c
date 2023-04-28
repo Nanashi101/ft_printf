@@ -6,56 +6,58 @@
 /*   By: jael-mor <jael-mor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 01:48:23 by jael-mor          #+#    #+#             */
-/*   Updated: 2022/11/17 21:58:02 by jael-mor         ###   ########.fr       */
+/*   Updated: 2023/04/28 18:52:49 by jael-mor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printarg(int flag, va_list ptr, int *freturn)
+void	ft_printarg(char flg, va_list arg, int *lenght)
 {
-	if (flag == 1)
-		ft_putchar(va_arg(ptr, int), 1, freturn);
-	else if (flag == 2)
-		ft_putstr(va_arg(ptr, char *), 1, freturn);
-	else if (flag == 3)
-		ft_putnbr(va_arg(ptr, int), 1, freturn);
-	else if (flag == 4)
-		ft_putuns(va_arg(ptr, unsigned int), 1, freturn);
-	else if (flag == 5)
-		ft_lowerhex(va_arg(ptr, unsigned int), freturn);
-	else if (flag == 6)
-		ft_upperhex(va_arg(ptr, unsigned int), freturn);
-	else if (flag == 7)
-		ft_putptr(va_arg(ptr, void *), freturn);
-	else if (flag == 8)
-		ft_putchar('%', 1, freturn);
+	if (flg == 'c')
+		ft_putchar(va_arg(arg, int), 1, lenght);
+	else if (flg == 's')
+		ft_putstr(va_arg(arg, char *), 1, lenght);
+	else if (flg == 'i' || flg == 'd')
+		ft_putnbr(va_arg(arg, int), 1, lenght);
+	else if (flg == 'u')
+		ft_putuns(va_arg(arg, unsigned int), 1, lenght);
+	else if (flg == 'x')
+		ft_lowerhexadecimal(va_arg(arg, unsigned int), lenght);
+	else if (flg == 'X')
+		ft_upperhexadecimal(va_arg(arg, unsigned int), lenght);
+	else if (flg == 'p')
+		ft_putptr(va_arg(arg, void *), lenght);
+	else if (flg == '%')
+		ft_putchar('%', 1, lenght);
+	else
+		ft_putchar(flg, 1, lenght);
 }
 
-int	ft_printf(char const *format, ...)
+int	ft_printf(char const *string, ...)
 {
-	va_list	ptr;
-	int		freturn;
+	va_list	arg;
+	int		lenght;
+	int		i;
 
 	if (write(1, 0, 0) == -1)
 		return (-1);
-	freturn = 0;
-	va_start(ptr, format);
-	while (*format)
+	lenght = 0;
+	i = 0;
+	va_start(arg, string);
+	while (string[i])
 	{
-		if (ft_flags(format) > 0 && ft_flags(format) < 9)
+		if (string[i] == '%')
 		{
-			ft_printarg(ft_flags(format), ptr, &freturn);
-			format += 2;
+			if (string[i + 1] == '\0')
+				break ;
+			ft_printarg(string[i + 1], arg, &lenght);
+			i++;
 		}
-		else if (ft_flags(format) == 9)
-			format++;
-		else if (*format)
-		{
-			ft_putchar(*format, 1, &freturn);
-			format++;
-		}
+		else
+			ft_putchar(string[i], 1, &lenght);
+		i++;
 	}
-	va_end(ptr);
-	return (freturn);
+	va_end(arg);
+	return (lenght);
 }

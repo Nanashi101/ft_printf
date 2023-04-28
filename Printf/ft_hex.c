@@ -6,34 +6,34 @@
 /*   By: jael-mor <jael-mor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 02:29:57 by jael-mor          #+#    #+#             */
-/*   Updated: 2022/11/17 21:42:12 by jael-mor         ###   ########.fr       */
+/*   Updated: 2023/04/28 18:49:24 by jael-mor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_lowerhex(unsigned long int n, int *freturn)
+void	ft_lowerhexadecimal(unsigned long int n, int *lenght)
 {
 	if (n <= 15)
 	{
-		ft_putchar("0123456789abcdef"[n], 1, freturn);
+		ft_putchar("0123456789abcdef"[n], 1, lenght);
 	}
 	else if (n > 15)
 	{
-		ft_lowerhex(n / 16, freturn);
-		ft_lowerhex(n % 16, freturn);
+		ft_lowerhexadecimal(n / 16, lenght);
+		ft_lowerhexadecimal(n % 16, lenght);
 	}
 }
 
-void	ft_upperhex(unsigned long int n, int *freturn)
+void	ft_upperhexadecimal(unsigned long int n, int *lenght)
 {
 	if (n <= 15)
 	{
-		ft_putchar("0123456789ABCDEF"[n], 1, freturn);
+		ft_putchar("0123456789ABCDEF"[n], 1, lenght);
 	}
 	else if (n > 15)
 	{
-		ft_upperhex(n / 16, freturn);
-		ft_upperhex(n % 16, freturn);
+		ft_upperhexadecimal(n / 16, lenght);
+		ft_upperhexadecimal(n % 16, lenght);
 	}
 }
